@@ -1,5 +1,4 @@
 //DECK
-
 function Card(value, suit){
   this.value = value;
   this.suit =suit;
@@ -30,11 +29,12 @@ Deck.prototype.shuffle = function(){
   return this;
 };
 
+Deck.prototype.reset = new Deck();
+
 Deck.prototype.deal = function(){
     var index = Math.floor(Math.random() * this.cards.length);
-    //console.log(index);
-    var card = this.cards[index];
-    this.cards.splice(index, 1);
+    var card = this.cards[index];//Get that specific card
+    this.cards.splice(index, 1);//Remove the card from the deck
   //  console.log(this.cards);
     return card;
   }
@@ -55,15 +55,19 @@ Player.prototype.discard = function(index) {
     }
     return this;
 }
-var deck = new Deck();
-console.log(deck.cards, deck.cards.length + " cards in the deck.");
-var player = new Player('xona');
+
+var deck = new Deck();//invoke the Deck -> deck of cards available
+//console.log(deck.cards, deck.cards.length + " cards are in the deck.");
+var player = new Player('xona');//invoke the Player -> player available
 console.log(player.name);
+//Player deals one card
 var cardTaken = deck.deal();
 player.takeCard(cardTaken);
+
 console.log("Player: " + player.name + " took " + cardTaken.value + " with " + cardTaken.suit);
-console.log("Player's hand: " , player.hand);
+//console.log("Player's hand: " , player.hand);//Show the cards in the player's hand
+//console.log(deck.cards, deck.cards.length + " cards in the deck.");
+player.discard(0);//
+//console.log("Player's hand: " + player.hand);
+deck = deck.reset;
 console.log(deck.cards, deck.cards.length + " cards in the deck.");
-player.discard(0);
-console.log("Player's hand: " + player.hand);
-// deck.shuffle();
