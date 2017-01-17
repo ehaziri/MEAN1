@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script>
+  var MyObjConstructor = function(name){
+    var myPrivateVar = "Hello";
+    this.name = name;
+    this.methodpub = function(){
+      console.log("I am a method.");
+    };
+  }
+
+  var obj1 = new MyObjConstructor('object1');
+  var obj2 = new MyObjConstructor('object2');
+  console.log(obj1);
+
+  obj1.newProperty = 'amazing!!!!!!!!!!';
+  obj1.__proto__.anotherProperty = "more amazing!!!!";
+  console.log(obj1.anotherProperty);
+  console.log(obj1.newProperty);
+
+  console.log(obj2.newProperty);
+  console.log(obj2.anotherProperty);
+  </script>
+  <body>
+
+  </body>
+</html>

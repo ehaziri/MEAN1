@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script>
+    function Cat(cat_name){
+        var name = cat_name;
+        this.getName = function() {
+          return name;
+        };
+    }
+
+    Cat.prototype.sayHi = function() {
+      console.log("meow");
+    };
+
+    Cat.prototype.numLegs = 4;
+
+    var muffin = new Cat('muffin');
+    var biscuit = new Cat('biscuit');
+    console.log(muffin, biscuit);
+
+    muffin.sayHi();
+    biscuit.sayHi();
+    console.log(muffin.numLegs);
+
+    // muffin.__proto__.numLegs ++;// doing this to muffin will mess up all the cats!
+  </script>
+  <body>
+
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vehicle</title>
+  </head>
+  <body>
+    <script>
+    function VehicleConstructor(name, number_of_wheels, number_of_passengers, speed){
+
+      var chars = "0123456789ABCEDGHIJKLMNOPQRSTUVWXYZ";
+
+      this.distance_traveled = 0;
+      this.name = name;
+      this.number_of_wheels = number_of_wheels;
+      this.number_of_passengers = number_of_passengers;
+      this.speed = speed;
+      this.vin = createVin();
+
+      function createVin(){
+        var vin = '';
+        for(var i=0; i<17; i++){
+          vin += chars[Math.floor(Math.random() *35)];
+        }
+      return vin;
+     }
+   }
+
+    // VehicleConstructor.prototype.distance_travelled = 0;
+
+    VehicleConstructor.prototype.updateDistanceTravelled = function(){
+      this.distance_traveled += this.speed;
+      console.log(this.distance_traveled);
+      return this;
+    }
+
+    VehicleConstructor.prototype.makeNoise = function(noise){
+      var noise = noise || "Honk Honk"
+      console.log(noise);
+      return this;
+    }
+
+    VehicleConstructor.prototype.move = function(){
+        this.updateDistanceTravelled();
+        this.makeNoise();
+        return this;
+      }
+
+    VehicleConstructor.prototype.checkMiles = function() {
+        console.log(this.distance_traveled);
+        return this;
+      }
+
+
+  var Bike = new VehicleConstructor("Bike", 2, 1, 9);
+  Bike.makeNoise = function() {
+      console.log("ring ring!");
+  }
+
+  Bike.move();
+
+  console.log(Bike);
+
+    // var Sedan = new VehicleConstructor("Sedan", 4, 5, 60);
+    // Sedan.makeNoise = function() {
+    //   console.log("Honk Honk!");
+    // }
+    // Sedan.makeNoise();
+    //
+    // var Bus = new VehicleConstructor("Bus", 4, 4, 40);
+    // Bus.pickUpPassengers = function(passengers) {
+    //   this.number_of_passengers += passengers;
+    // }
+    // Bus.pickUpPassengers(10);
+    // console.log(Bus.number_of_passengers);
+
+    </script>
+  </body>
+</html>
