@@ -18,7 +18,7 @@ function Deck(){
 //Makes a random reoredering of the deck
 Deck.prototype.shuffle = function(){
   for (var i = 0; i < this.cards.length; i++) {
-    var rand1 = Math.floor(Math.random() * this.cards.length);//this.cards.length enables reoredering even after dealing cards
+    var rand1 = Math.floor(Math.random() * this.cards.length);//this.cards.length enables reordering even after dealing cards
     var rand2 = Math.floor(Math.random() * this.cards.length);
     // console.log(rand1, rand2);
     var value = this.cards[rand1]
