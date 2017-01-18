@@ -77,7 +77,6 @@ var remove = _.reject([1,2,3,4,5,6], function(value){
 });
 console.log("Reject: ", remove);
 
-
 var evens = _.filter([1,2,3,4,5,6], function(value){
   return value % 2 == 0;
 });

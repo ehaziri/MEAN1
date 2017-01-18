@@ -36,7 +36,6 @@ function Charlie(language){
 charlie = leadBootcamp('javascript', Charlie);
 
 
-
 function printResults(doSomething) {
   var result = doSomething();
   console.log(result);
